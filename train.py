@@ -6,12 +6,13 @@ import csv
 import pickle
 
 import model
+import util
 
 from typing import List, Tuple
 
 
 def main(args: argparse.Namespace) -> None:
-    x, y = read_tsv(args.train)
+    x, y = util.read_tsv(args.train)
     classifier = model.NameClassifier()
     classifier.train(x, y)
     with open(args.model, "wb") as sink:
