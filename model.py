@@ -14,6 +14,9 @@ class NameClassifier:
 
     def __init__(self):
         self.vectorizer = sklearn.feature_extraction.DictVectorizer()
+        # The term "Bernoulli" here refers to Bernoulli trials, observations
+        # that can either be true or false. Here these correspond to the
+        # vectorizer's binarization of the features.
         self.classifier = sklearn.naive_bayes.BernoulliNB()
 
     def _extract_features(self, name: str) -> Dict[str, Any]:
