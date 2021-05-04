@@ -22,7 +22,9 @@ class NameClassifier:
     def _extract_features(self, name: str) -> Dict[str, Any]:
         features: Dict[str, Any] = {}
         features["lastletter"] = name[-1]
-        features["length"] = len(name)
+        # I convert this to a string because the vectorizer expects string-like
+        # features.
+        features["length"] = str(len(name))
         # TODO: add more features here.
         return features
 
